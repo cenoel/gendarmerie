@@ -30,7 +30,7 @@ class GnPersonnel(models.Model):
     ],default='fonction')
     affectation_ids = fields.One2many('gn.affectation','personnel_id',string='Les affectations liés')
     calcul_affectation = fields.Float('Nombre total d\'affectation',compute='_calcul_nombre_affectation')
-    grades_id = fields.Many2one('gn.grades',string='Grade')
+    grades_id = fields.Many2one('gn.grades',string='Grade',required=True)
 
     @api.constrains('cin')
     def check_cin(self):

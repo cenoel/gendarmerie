@@ -19,6 +19,7 @@
         <tree string="">
           <field name="name"/>
           <field name="matricule"/>
+          <field name="grades_id"/>
           <field name="date_naissance"/>
           <field name="lieu_naissance"/>
           <field name="sexe"/>

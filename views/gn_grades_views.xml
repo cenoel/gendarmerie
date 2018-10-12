@@ -36,17 +36,22 @@
             <group>
               <field name="description" placeholder="Description du grade"/>
             </group>
-            <notebook>
-              <page string="Liste des personnel lié">
-                <group>
-                  <field name="personnel_ids">
-                    <field name="image" widget="image"/>
-                    <field name="name"/>
-                    <field name="matricule"/>
-                  </field>
-                </group>
-              </page>
-            </notebook>
+            <field name="personnel_ids">
+              <tree>
+                <field name="name"/>
+                <field name="matricule"/>
+                <field name="grades_id"/>
+                <field name="date_naissance"/>
+                <field name="lieu_naissance"/>
+                <field name="sexe"/>
+                <field name="cin"/>
+                <field name="lieu_cin"/>
+                <field name="date_cin"/>
+                <field name="est_une_duplicata_cin"/>
+                <field name="lieu_duplicata_cin"/>
+                <field name="date_duplicata_cin"/>
+              </tree>
+            </field>
           </sheet>
         </form>
       </field>
