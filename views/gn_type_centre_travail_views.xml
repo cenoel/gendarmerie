@@ -1,0 +1,42 @@
+<odoo>
+  <data>
+    <record id="gn_type_centre_travail_action" model="ir.actions.act_window">
+      <field name="name">Type de centre de travail</field>
+      <field name="res_model">gn.type.centre.travail</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          cliquez pour ajouter un nouveau type centre de travail
+        </p>
+      </field>
+    </record>
+
+    <record id="gn_type_poste_tree" model="ir.ui.view">
+      <field name="name">Gendarmerie type centre de travail liste</field>
+      <field name="model">gn.type.centre.travail</field>
+      <field name="arch" type="xml">
+        <tree string="">
+          <field name="name"/>
+          <field name="description"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="gn_type_poste_form" model="ir.ui.view">
+      <field name="name">Gendarmerie type centre de travail création</field>
+      <field name="model">gn.type.centre.travail</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <sheet string="">
+            <field name="name" placeholder="Nom du type de poste"/>
+            <group>
+              <field name="description" placeholder="Description du type de poste"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+  </data>
+</odoo>

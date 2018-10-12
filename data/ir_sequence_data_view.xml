@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <record id="numero_affectation" model="ir.sequence">
+       <field name="name">Numero d'affectation</field>
+       <field name="code">set_numero_affectation</field>
+       <field name="prefix">GN</field>
+       <field name="padding">20</field>
+   </record>
+</odoo>

@@ -1,0 +1,62 @@
+<odoo>
+  <data>
+
+    <record id="gn_affectation_action" model="ir.actions.act_window">
+      <field name="name">Affectation</field>
+      <field name="res_model">gn.affectation</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          cliquez pour ajouter un nouveau affectation
+        </p>
+      </field>
+    </record>
+
+    <record id="gn_affectation_tree" model="ir.ui.view">
+      <field name="name">Gendarmerie affectation liste</field>
+      <field name="model">gn.affectation</field>
+      <field name="arch" type="xml">
+        <tree string="">
+          <field name="name"/>
+          <field name="personnel_id"/>
+          <field name="ancien_poste"/>
+          <field name="nouvelle_poste"/>
+          <field name="status_affectation"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="gn_affectation_form" model="ir.ui.view">
+      <field name="name">Gendarmerie affectation création</field>
+      <field name="model">gn.affectation</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <header>
+            <field name="status_affectation" widget="statusbar" statusbar_visible="encour,fini"
+                   readonly="1"/>
+          </header>
+          <sheet string="">
+            <field name="name" placeholder="Numero d'affectation"/>
+            <group>
+              <field name="personnel_id" placeholder="Personnel concerné"/>
+            </group>
+            <notebook>
+              <page string="Informations concernant">
+                <group>
+                  <group>
+                    <field name="ancien_poste"/>
+                  </group>
+                  <group>
+                    <field name="nouvelle_poste"/>
+                  </group>
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+  </data>
+</odoo>

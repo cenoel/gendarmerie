@@ -1,0 +1,56 @@
+<odoo>
+  <data>
+    <record id="gn_grades_action" model="ir.actions.act_window">
+      <field name="name">Grades liste</field>
+      <field name="res_model">gn.grades</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          cliquez pour ajouter un nouveau grades
+        </p>
+      </field>
+    </record>
+
+    <record id="gn_grades_tree" model="ir.ui.view">
+      <field name="name">Gendarmerie grades liste</field>
+      <field name="model">gn.grades</field>
+      <field name="arch" type="xml">
+        <tree string="">
+          <field name="name"/>
+          <field name="description"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="gn_grades_form" model="ir.ui.view">
+      <field name="name">Gendarmerie grades création</field>
+      <field name="model">gn.grades</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <sheet string="">
+            <field name="image" widget='image' class="oe_avatar"/>
+            <group>
+              <field name="name" placeholder="Nom du grade"/>
+            </group>
+            <group>
+              <field name="description" placeholder="Description du grade"/>
+            </group>
+            <notebook>
+              <page string="Liste des personnel lié">
+                <group>
+                  <field name="personnel_ids">
+                    <field name="image" widget="image"/>
+                    <field name="name"/>
+                    <field name="matricule"/>
+                  </field>
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+  </data>
+</odoo>

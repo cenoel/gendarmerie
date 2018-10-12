@@ -1,0 +1,94 @@
+<odoo>
+  <data>
+    <record id="gn_personnel_action" model="ir.actions.act_window">
+      <field name="name">Personnels</field>
+      <field name="res_model">gn.personnel</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          cliquez pour ajouter un nouveau personnel
+        </p>
+      </field>
+    </record>
+
+    <record id="gn_personnel_tree" model="ir.ui.view">
+      <field name="name">Gendarmerie personnels liste</field>
+      <field name="model">gn.personnel</field>
+      <field name="arch" type="xml">
+        <tree string="">
+          <field name="name"/>
+          <field name="matricule"/>
+          <field name="date_naissance"/>
+          <field name="lieu_naissance"/>
+          <field name="sexe"/>
+          <field name="cin"/>
+          <field name="lieu_cin"/>
+          <field name="date_cin"/>
+          <field name="est_une_duplicata_cin"/>
+          <field name="lieu_duplicata_cin"/>
+          <field name="date_duplicata_cin"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="gn_personnel_form" model="ir.ui.view">
+      <field name="name">Gendarmerie personnels création</field>
+      <field name="model">gn.personnel</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <header>
+            <field name="status_personnel" widget="statusbar" statusbar_visible="fonction,retraite,demission,deces"
+                   readonly="1"/>
+          </header>
+          <sheet string="">
+            <div class="oe_button_box" name="button_box">
+              <button type="object" name="selectionner_tout_affectation_lie" icon="fa-cubes">
+                <field string="Affectations" name="calcul_affectation" widget="statinfo"/>
+              </button>
+            </div>
+            <field name="image" widget='image' class="oe_avatar"/>
+            <group>
+              <field name="name" placeholder="Nom et prénom"/>
+              <field name="matricule" placeholder="Numero matricule"/>
+              <field name="grades_id" placeholder="Grade"/>
+            </group>
+            <notebook>
+              <page string="Informations personnel">
+                <group>
+                  <group>
+                    <field name="date_naissance"/>
+                  </group>
+                  <group>
+                    <field name="lieu_naissance"/>
+                  </group>
+                  <group>
+                    <field name="sexe"/>
+                  </group>
+                  <group>
+                    <field name="cin"/>
+                  </group>
+                  <group>
+                    <field name="est_une_duplicata_cin"/>
+                  </group>
+                  <group>
+                    <field name="lieu_cin" attrs="{'invisible':[('est_une_duplicata_cin', '=', True)]}"/>
+                  </group>
+                  <group>
+                    <field name="date_cin" attrs="{'invisible':[('est_une_duplicata_cin', '=', True)]}"/>
+                  </group>
+                  <group>
+                    <field name="lieu_duplicata_cin" attrs="{'invisible':[('est_une_duplicata_cin', '=', False)]}"/>
+                  </group>
+                  <group>
+                    <field name="date_duplicata_cin" attrs="{'invisible':[('est_une_duplicata_cin', '=', False)]}"/>
+                  </group>
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+  </data>
+</odoo>

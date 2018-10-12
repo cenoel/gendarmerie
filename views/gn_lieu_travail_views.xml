@@ -1,0 +1,64 @@
+<odoo>
+  <data>
+
+    <record id="gn_lieu_travail_action" model="ir.actions.act_window">
+      <field name="name">Lieu de travail</field>
+      <field name="res_model">gn.lieu.travail</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          cliquez pour ajouter un nouveau lieu de travail
+        </p>
+      </field>
+    </record>
+
+    <record id="gn_lieu_travail_tree" model="ir.ui.view">
+      <field name="name">Gendarmerie lieu de travail liste</field>
+      <field name="model">gn.lieu.travail</field>
+      <field name="arch" type="xml">
+        <tree string="">
+          <field name="name"/>
+          <field name="type_ville"/>
+          <field name="ville_parent_id"/>
+          <field name="region"/>
+          <field name="province"/>
+          <field name="type_poste"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="gn_lieu_travail_form" model="ir.ui.view">
+      <field name="name">Gendarmerie lieu de travail création</field>
+      <field name="model">gn.lieu.travail</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <sheet string="">
+            <field name="name" placeholder="Nom du ville"/>
+            <group>
+              <field name="type_ville" placeholder="Type du ville"/>
+            </group>
+            <group>
+              <field name="ville_parent_id" placeholder="Ville parent"/>
+            </group>
+            <notebook>
+              <page string="Informations concernant">
+                <group>
+                  <group>
+                    <field name="region"/>
+                  </group>
+                  <group>
+                    <field name="province"/>
+                  </group>
+                  <group>
+                    <field name="type_poste" widget="many2many_tags"/>
+                  </group>
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+  </data>
+</odoo>

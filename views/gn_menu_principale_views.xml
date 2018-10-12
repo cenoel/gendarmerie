@@ -1,0 +1,49 @@
+<odoo>
+  <data>
+    <menuitem id="gn_menu_pricipale"
+              name="GENDARMERIE"
+              web_icon="og_gn,static/description/icon.png"
+              sequence="0"/>
+
+    {#Sous menu ressources#}
+    <menuitem id="gn_sous_menu_principale_ressource"
+              name="Ressources"
+              parent="gn_menu_pricipale"
+              sequence="10" />
+
+    <menuitem id="gn_sous_menu_ressource_personnel"
+              action="og_gn.gn_personnel_action"
+              parent="gn_sous_menu_principale_ressource"
+              sequence="11" />
+
+    {#Sous menu travails#}
+    <menuitem id="gn_sous_menu_principale_travails"
+              name="Travails"
+              parent="gn_menu_pricipale"
+              sequence="20" />
+
+    <menuitem id="gn_sous_menu_travails_affectation"
+              name="Affectations"
+              action="og_gn.gn_affectation_action"
+              parent="gn_sous_menu_principale_travails"
+              sequence="21" />
+
+    <menuitem id="gn_sous_menu_travails_lieu_travail"
+              name="Lieu de travails"
+              action="og_gn.gn_lieu_travail_action"
+              parent="gn_sous_menu_principale_travails"
+              sequence="22" />
+
+    <menuitem id="gn_sous_menu_travails_type_centre_travail"
+              name="Type de centre de travail"
+              action="og_gn.gn_type_centre_travail_action"
+              parent="gn_sous_menu_principale_travails"
+              sequence="23" />
+
+    <menuitem id="gn_sous_menu_travails_grades"
+              name="Grades"
+              action="og_gn.gn_grades_action"
+              parent="gn_sous_menu_principale_travails"
+              sequence="24" />
+  </data>
+</odoo>
